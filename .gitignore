@@ -17,4 +17,4 @@ yarn-error.log*
 *.sw*
 
 # Database
-server/db/db.json
+/server/db/db.json

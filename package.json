@@ -2,19 +2,17 @@
   "name": "photo-message",
   "version": "1.0.0",
   "description": "Simple photo-caption PWA",
-  "main": "server/",
+  "main": "server/index.js",
   "author": "Alexey Mozheyko",
-  "license": "MIT",
   "scripts": {
-    "start": "node server/",
+    "start": "node sw_build.js && node server/index.js",
     "build": "node sw_build.js"
   },
   "dependencies": {
-    "bootstrap": "^4.1.3",
-    "express": "^4.16.4",
-    "jquery": "^3.3.1",
-    "react": "^16.7.0",
-    "socket.io": "^2.2.0",
+    "bootstrap": "^4.6.0",
+    "express": "^4.17.1",
+    "jquery": "^3.6.0",
+    "socket.io": "^2.4.1",
     "toastr": "^2.1.4",
     "workbox-build": "^3.6.3"
   }
