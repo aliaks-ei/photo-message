@@ -1,26 +1,26 @@
 #toast-container {
-    top: 0;
-    left: 0;
-    width: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
 #toast-container > div {
-    opacity: 1;
-    box-shadow: 0 0 2rem hsla(0, 0%, 0%, 0.75);
-    border-radius: 0;
-    width: 100%;
+  opacity: 1;
+  box-shadow: 0 0 2rem hsla(0, 0%, 0%, 0.75);
+  border-radius: 0;
+  width: 100%;
 }
 
 #camera.withphoto {
-    color: transparent !important;
-    background-size: cover;
+  color: transparent !important;
+  background-size: cover;
 }
 
 .main-wrapper {
-    margin-bottom: 70px;
+  margin-bottom: 70px;
 }
 
 .send-link {
-    right: 1.25rem; 
-    bottom: 1.25rem;
+  right: 1.25rem;
+  bottom: 1.25rem;
 }

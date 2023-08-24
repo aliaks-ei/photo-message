@@ -24,7 +24,7 @@ workbox.clientsClaim();
 self.__precacheManifest = [
   {
     "url": "assets/styles/global.css",
-    "revision": "0384a830cb5ca3810fee3d9359de124d"
+    "revision": "4bc2580d9bbf5a396f917803e5bdbadb"
   },
   {
     "url": "index.html",
@@ -36,11 +36,11 @@ self.__precacheManifest = [
   },
   {
     "url": "classes/Camera.js",
-    "revision": "ae95429346cd06d42153db5cf4f663f3"
+    "revision": "11f2ef15f9390011866e1e3f1d3252c3"
   },
   {
     "url": "classes/Message.js",
-    "revision": "33cb90ab1ef511a44fce7d9286a896da"
+    "revision": "4c4e676ebfb64a83788f20126213c6fe"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();

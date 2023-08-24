@@ -1,139 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
-        <meta name="mobile-web-app-capable" content="yes" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
+    />
+    <meta name="mobile-web-app-capable" content="yes" />
 
-        <link rel="icon" href="./assets/icons/favicon.ico" type="image/x-icon" />
-        <link rel="manifest" href="./manifest.json">
+    <link rel="icon" href="./assets/icons/favicon.ico" type="image/x-icon" />
+    <link rel="manifest" href="./manifest.json" />
 
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />
-        <link rel="stylesheet" href="/modules/bootstrap/dist/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="/modules/toastr/build/toastr.min.css" />
-        <link rel="stylesheet" href="./assets/styles/global.css" />
-        
-        <title> Photo message </title>
-    </head>
-    <body class="bg-info">
-        
-        <!-- Loader -->
-        <main class="main-wrapper">
-            <div 
-                id    = "messages" 
-                class = "container-fluid"
-            >
-                <div 
-                    id    = "loader" 
-                    class = "text-center text-light" 
-                    style = "margin-top: 10rem"
-                >
-                    <i class="fas fa-spinner fa-2x fa-pulse"></i>
-                    <p> Loading messages </p>
-                </div>
-            </div>
-        </main>
-        
-        <!-- Toolbar (footer) -->
-        <div class="container-fluid fixed-bottom">
-            <div 
-                id    = "toolbar" 
-                class = "row bg-dark"
-            >
-                <div class="col p-2 d-flex">
-                    <button 
-                        id          = "camera" 
-                        class       = "fas fa-camera fa-lg px-3 mr-2 text-light border-light bg-dark rounded-circle" 
-                        data-toggle = "modal" 
-                        data-target = "#viewfinder"
-                    ></button>
-                    <textarea 
-                        id          = "caption" 
-                        class       = "flex-grow-1 w-100 rounded border-light align-middle pr-5" 
-                        maxlength   = "120" 
-                        placeholder = "Image caption..." 
-                        style       = "resize: none"
-                    ></textarea>
-                    <a 
-                        id    = "send" 
-                        class = "fas fa-paper-plane fa-lg position-absolute text-dark send-link p-2" 
-                    ></a>
-                </div>
-            </div>
-        </div>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+      integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="/modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="/modules/toastr/build/toastr.min.css" />
+    <link rel="stylesheet" href="./assets/styles/global.css" />
 
-        <!-- Camera modal -->
-        <div 
-            id          = "viewfinder" 
-            class       = "modal fade" 
-            tabindex    = "-1" 
-            role        = "dialog" 
-            aria-hidden = "true"
-        >
-            <div class="modal-dialog fixed-bottom" role="document">
-                <div class="modal-content bg-dark">
-                    <div class="modal-body p-1 text-center">
-                        <video 
-                            id    = "player" 
-                            class = "w-100 rounded bg-white" 
-                            autoplay 
-                        ></video>
-                        <button 
-                            id           = "shutter" 
-                            class        = "fas fa-circle fa-3x rounded-circle bg-white text-danger p-1 my-2" 
-                            data-dismiss = "modal"
-                        ></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Photo modal -->
+    <title>Photo message</title>
+  </head>
+  <body class="bg-info">
+    <!-- Loader -->
+    <main class="main-wrapper">
+      <div id="messages" class="container-fluid">
         <div
-            id          = "photoframe" 
-            class       = "modal fade"
-            tabindex    = "-1"
-            role        = "dialog"
-            aria-hidden = "true"
+          id="loader"
+          class="text-center text-light"
+          style="margin-top: 10rem"
         >
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body p-1">
-                        <img 
-                            class        = "w-100 rounded" 
-                            data-dismiss = "modal" 
-                            alt          = "Fullscreen image" 
-                        />
-                    </div>
-                </div>
-            </div>
+          <i class="fas fa-spinner fa-2x fa-pulse"></i>
+          <p>Loading messages</p>
         </div>
-        
-        <!-- Scripts -->
-        <script src="/modules/jquery/dist/jquery.min.js"></script>
-        <script src="/modules/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="/modules/toastr/build/toastr.min.js"></script>
-        <script src="/socket.io/socket.io.js"></script>
-        <script src="./classes/Camera.js"></script>
-        <script src="./classes/Message.js"></script>
-        <script src="./main.js"></script>
+      </div>
+    </main>
 
-        <!-- Init app if supported -->
-        <script>
-            // Check compatibility
-            if (navigator.mediaDevices) {
-                _init();
+    <!-- Toolbar (footer) -->
+    <div class="container-fluid fixed-bottom">
+      <div id="toolbar" class="row bg-dark">
+        <div class="col p-2 d-flex">
+          <button
+            id="camera"
+            class="fas fa-camera fa-lg px-3 mr-2 text-light border-light bg-dark rounded-circle"
+            data-toggle="modal"
+            data-target="#viewfinder"
+          ></button>
+          <textarea
+            id="caption"
+            class="flex-grow-1 w-100 rounded border-light align-middle pr-5"
+            maxlength="120"
+            placeholder="Image caption..."
+            style="resize: none"
+          ></textarea>
+          <a
+            id="send"
+            class="fas fa-paper-plane fa-lg position-absolute text-dark send-link p-2"
+          ></a>
+        </div>
+      </div>
+    </div>
 
-                // Register SW (if supported)
-                if (navigator.serviceWorker) {
-                    window.addEventListener('load', () => {
-                        navigator.serviceWorker.register('/sw.js');
-                    });
-                }
-            }
-            else {
-                toastr.error(null, 'This app is not supported by your browser.', { timeout: 30000 });
-            }
-        </script>
-    </body>
+    <!-- Camera modal -->
+    <div
+      id="viewfinder"
+      class="modal fade"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog fixed-bottom" role="document">
+        <div class="modal-content bg-dark">
+          <div class="modal-body p-1 text-center">
+            <video id="player" class="w-100 rounded bg-white" autoplay></video>
+            <button
+              id="shutter"
+              class="fas fa-circle fa-3x rounded-circle bg-white text-danger p-1 my-2"
+              data-dismiss="modal"
+            ></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Photo modal -->
+    <div
+      id="photoframe"
+      class="modal fade"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body p-1">
+            <img
+              class="w-100 rounded"
+              data-dismiss="modal"
+              alt="Fullscreen image"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/modules/jquery/dist/jquery.min.js"></script>
+    <script src="/modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/modules/toastr/build/toastr.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./classes/Camera.js"></script>
+    <script src="./classes/Message.js"></script>
+    <script src="./main.js"></script>
+
+    <!-- Init app if supported -->
+    <script>
+      // Check compatibility
+      if (navigator.mediaDevices) {
+        _init();
+
+        // Register SW (if supported)
+        if (navigator.serviceWorker) {
+          window.addEventListener("load", () => {
+            navigator.serviceWorker.register("/sw.js");
+          });
+        }
+      } else {
+        toastr.error(null, "This app is not supported by your browser.", {
+          timeout: 30000,
+        });
+      }
+    </script>
+  </body>
 </html>

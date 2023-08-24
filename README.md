@@ -1,8 +1,7 @@
 # Photo message
 Simple photo-caption PWA (with Workbox) that uses device's camera to make photo and attach it to the message.
 
-### Before starting the application
-Create empty file `server/db/db.json` from template `server/db/db.json.tmpl`.
+> Create an empty file `server/db/db.json` from template `server/db/db.json.tmpl`.
 
 ### Install dependencies
 ```
